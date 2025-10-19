@@ -2,6 +2,7 @@
 
 This is a simple command-line interface (CLI) script that allows you to interact with OpenAI’s API directly from your terminal using natural language prompts.
 It sends your input message to an OpenAI model (by default, `gpt-4o-mini`) and displays the formatted response in Markdown using the `rich` library.
+<img width="976" height="632" alt="image" src="https://github.com/user-attachments/assets/44ccf34e-25ff-48de-bf94-959106d72f66" />
 
 ## Installation
 
