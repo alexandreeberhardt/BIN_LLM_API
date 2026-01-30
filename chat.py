@@ -1,10 +1,15 @@
-#!/home/USER/.venvs/chat/bin/python
+#!/Users/alexandre/.venvs/chat/bin/python
 import sys
+from pathlib import Path
+from dotenv import load_dotenv
 from openai import OpenAI
 from rich.markdown import Markdown
 from rich.console import Console
 
-client = OpenAI(api_key="YOUR_API_KEY") # You need to buy credits at https://platform.openai.com/settings/organization/billing/overview
+# Charger le .env depuis le dossier du script (résout le lien symbolique)
+load_dotenv(Path(__file__).resolve().parent / ".env")
+
+client = OpenAI()  # Lit automatiquement OPENAI_API_KEY
 
 
 if len(sys.argv) < 2:
@@ -21,4 +26,5 @@ response = client.chat.completions.create(
 )
 
 content = response.choices[0].message.content
-Console.print(Markdown(content))
+console = Console()
+console.print(Markdown(content))
